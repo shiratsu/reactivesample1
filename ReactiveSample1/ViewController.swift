@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
     @IBOutlet weak var s1: UISegmentedControl!
     @IBOutlet weak var s2: UISegmentedControl!
@@ -26,6 +27,8 @@ class ViewController: UIViewController {
 
 }
 
+
+
 struct RAC  {
     var target : NSObject!
     var keyPath : String!
@@ -42,7 +45,7 @@ struct RAC  {
     }
 }
 
-operator infix ~> {}
-@infix func ~> (signal: RACSignal, rac: RAC) {
+infix operator ~> {}
+func ~> (signal: RACSignal, rac: RAC) {
     rac.assignSignal(signal)
 }
