@@ -37,24 +37,47 @@
                                     <rect key="frame" x="139" y="359" width="123" height="29"/>
                                 </variation>
                             </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Zc-U9-552">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="144" y="255" width="97" height="30"/>
+                                </variation>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hc8-t6-t2D">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="171" y="208" width="42" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="7VJ-jQ-ICB"/>
                                 <exclude reference="QoA-JD-PXx"/>
+                                <exclude reference="6Zc-U9-552"/>
+                                <exclude reference="Hc8-t6-t2D"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="7VJ-jQ-ICB"/>
                                 <include reference="QoA-JD-PXx"/>
+                                <include reference="6Zc-U9-552"/>
+                                <include reference="Hc8-t6-t2D"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="s1" destination="7VJ-jQ-ICB" id="RQw-ox-fmA"/>
                         <outlet property="s2" destination="QoA-JD-PXx" id="nsW-LU-Iaf"/>
+                        <outlet property="textbox" destination="6Zc-U9-552" id="KSb-Fp-lce"/>
+                        <outlet property="updatelabel" destination="Hc8-t6-t2D" id="ZZh-Xq-nb1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

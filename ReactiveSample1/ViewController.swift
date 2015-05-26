@@ -13,14 +13,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var s1: UISegmentedControl!
     @IBOutlet weak var s2: UISegmentedControl!
 
+    @IBOutlet weak var textbox: UITextField!
+    @IBOutlet weak var updatelabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        //RACObserve(self,keyPath: String(s1.selectedSegmentIndex)) ~> RAC(self,String(s2.selectedSegmentIndex))
+        
+        textbox.rac_textSignal().subscribeNext {
+            (next:AnyObject!) -> () in
+            if let text = next as? String {
+                println(text)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func RACObserve(target: NSObject!, keyPath: String) -> RACSignal  {
+        return target.rac_valuesForKeyPath(keyPath, observer: target)
     }
 
     

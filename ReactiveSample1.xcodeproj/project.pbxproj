@@ -14,6 +14,7 @@
 		5613854F1B12C69B0080E8DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5613854E1B12C69B0080E8DA /* Images.xcassets */; };
 		561385521B12C69B0080E8DA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 561385501B12C69B0080E8DA /* LaunchScreen.xib */; };
 		5613855E1B12C69B0080E8DA /* ReactiveSample1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5613855D1B12C69B0080E8DA /* ReactiveSample1Tests.swift */; };
+		5883CDC51B1483C200532AC5 /* ReactiveExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5883CDC41B1483C200532AC5 /* ReactiveExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		5613855C1B12C69B0080E8DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5613855D1B12C69B0080E8DA /* ReactiveSample1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveSample1Tests.swift; sourceTree = "<group>"; };
 		5883CDC31B137E2D00532AC5 /* ReactiveSample1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ReactiveSample1-Bridging-Header.h"; sourceTree = "<group>"; };
+		5883CDC41B1483C200532AC5 /* ReactiveExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveExtension.swift; sourceTree = "<group>"; };
 		6541CEB822AA67EB28E207B5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		983673C7D53A35A982C1FC84 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 				561385501B12C69B0080E8DA /* LaunchScreen.xib */,
 				561385451B12C69B0080E8DA /* Supporting Files */,
 				5883CDC31B137E2D00532AC5 /* ReactiveSample1-Bridging-Header.h */,
+				5883CDC41B1483C200532AC5 /* ReactiveExtension.swift */,
 			);
 			path = ReactiveSample1;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5613854A1B12C69B0080E8DA /* ViewController.swift in Sources */,
+				5883CDC51B1483C200532AC5 /* ReactiveExtension.swift in Sources */,
 				561385481B12C69B0080E8DA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
