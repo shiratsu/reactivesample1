@@ -20,12 +20,31 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         //RACObserve(self,keyPath: String(s1.selectedSegmentIndex)) ~> RAC(self,String(s2.selectedSegmentIndex))
         
+//        //書き方１
         textbox.rac_textSignal().subscribeNext {
             (next:AnyObject!) -> () in
             if let text = next as? String {
                 println(text)
             }
         }
+//
+        //書き方2
+//        textbox.rac_textSignal().subscribeNextAs {
+//            (text:String) -> () in
+//            println(text)
+//        }
+        
+        //書き方3
+        //これは動かないらしい
+        //http://qiita.com/bonegollira/items/12b451046bc14ecf5d97
+        let textsignal = RACObserve(self.textbox, keyPath: "text")
+        textsignal.subscribeNext {
+            (next:AnyObject!) -> () in
+            if let text = next as? String {
+                println(text)
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -17,3 +17,7 @@ extension RACSignal {
         }
     }
 }
+
+func RACObserve(target: NSObject!, keyPath: String) -> RACSignal  {
+    return target.rac_valuesForKeyPath(keyPath, observer: target)
+}
