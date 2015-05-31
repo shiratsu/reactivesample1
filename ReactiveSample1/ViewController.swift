@@ -15,18 +15,22 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var textbox: UITextField!
     @IBOutlet weak var updatelabel: UILabel!
+    @IBOutlet weak var smplbtn: UIButton!
+    
+    @IBOutlet weak var anotherlabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //RACObserve(self,keyPath: String(s1.selectedSegmentIndex)) ~> RAC(self,String(s2.selectedSegmentIndex))
         
 //        //書き方１
-        textbox.rac_textSignal().subscribeNext {
-            (next:AnyObject!) -> () in
-            if let text = next as? String {
-                println(text)
-            }
-        }
+//        textbox.rac_textSignal().subscribeNext { [weak self]
+//            (next:AnyObject!) -> () in
+//            if let text = next as? String {
+//                self?.updatelabel.text = text
+//            }
+//        }
 //
         //書き方2
 //        textbox.rac_textSignal().subscribeNextAs {
@@ -37,13 +41,28 @@ class ViewController: UIViewController {
         //書き方3
         //これは動かないらしい
         //http://qiita.com/bonegollira/items/12b451046bc14ecf5d97
-        let textsignal = RACObserve(self.textbox, keyPath: "text")
-        textsignal.subscribeNext {
-            (next:AnyObject!) -> () in
-            if let text = next as? String {
-                println(text)
-            }
-        }
+//        let textsignal = RACObserve(self.textbox, keyPath: "text")
+//        textsignal.subscribeNext {
+//            (next:AnyObject!) -> () in
+//            if let text = next as? String {
+//                println(text)
+//            }
+//        }
+        //書き方4：これはOK
+        textbox.rac_textSignal() ~> RAC(self.updatelabel, "text")
+        
+        // Observe label, to update another label:
+        //TextFieldにObserveは使えないみたい
+        RACObserve(self.updatelabel, "text") ~> RAC(self.anotherlabel, "text")
+        
+        
+        //書き方5：これはコンパイルエラー
+        //RAC(self.updatelabel, "text") = self.textbox.rac_textSignal
+        
+        self.smplbtn.rac_command = RACCommand(signalBlock:{[weak self](_:AnyObject!) -> RACSignal in
+            self!.updatelabel.text = ""
+            return RACSignal.empty()
+        })
         
     }
 
@@ -52,33 +71,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func RACObserve(target: NSObject!, keyPath: String) -> RACSignal  {
-        return target.rac_valuesForKeyPath(keyPath, observer: target)
-    }
-
+    
     
 
 }
 
 
 
-struct RAC  {
-    var target : NSObject!
-    var keyPath : String!
-    var nilValue : AnyObject!
-    
-    init(_ target: NSObject!, _ keyPath: String, nilValue: AnyObject? = nil) {
-        self.target = target
-        self.keyPath = keyPath
-        self.nilValue = nilValue
-    }
-    
-    func assignSignal(signal : RACSignal) {
-        signal.setKeyPath(self.keyPath, onObject: self.target, nilValue: self.nilValue)
-    }
-}
 
-infix operator ~> {}
-func ~> (signal: RACSignal, rac: RAC) {
-    rac.assignSignal(signal)
-}
+

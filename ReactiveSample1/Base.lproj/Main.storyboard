@@ -51,7 +51,25 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="171" y="208" width="42" height="21"/>
+                                    <rect key="frame" x="171" y="167" width="42" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v58-w6-BDR">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="171" y="304" width="46" height="30"/>
+                                </variation>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNF-1M-Ac5">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="171" y="209" width="42" height="21"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -62,6 +80,8 @@
                                 <exclude reference="QoA-JD-PXx"/>
                                 <exclude reference="6Zc-U9-552"/>
                                 <exclude reference="Hc8-t6-t2D"/>
+                                <exclude reference="v58-w6-BDR"/>
+                                <exclude reference="rNF-1M-Ac5"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -70,12 +90,16 @@
                                 <include reference="QoA-JD-PXx"/>
                                 <include reference="6Zc-U9-552"/>
                                 <include reference="Hc8-t6-t2D"/>
+                                <include reference="v58-w6-BDR"/>
+                                <include reference="rNF-1M-Ac5"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="anotherlabel" destination="rNF-1M-Ac5" id="dWq-DA-krP"/>
                         <outlet property="s1" destination="7VJ-jQ-ICB" id="RQw-ox-fmA"/>
                         <outlet property="s2" destination="QoA-JD-PXx" id="nsW-LU-Iaf"/>
+                        <outlet property="smplbtn" destination="v58-w6-BDR" id="Bxu-Vp-5ba"/>
                         <outlet property="textbox" destination="6Zc-U9-552" id="KSb-Fp-lce"/>
                         <outlet property="updatelabel" destination="Hc8-t6-t2D" id="ZZh-Xq-nb1"/>
                     </connections>
