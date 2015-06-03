@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        //RACObserve(self,keyPath: String(s1.selectedSegmentIndex)) ~> RAC(self,String(s2.selectedSegmentIndex))
+        RACObserve(self,String(s1.selectedSegmentIndex)) ~> RAC(self,String(s2.selectedSegmentIndex))
         
 //        //書き方１
 //        textbox.rac_textSignal().subscribeNext { [weak self]
